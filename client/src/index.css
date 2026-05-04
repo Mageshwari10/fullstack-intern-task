@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Responsive Templates Grid */
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Template Card Hover Effects */
+.templates-grid > div {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.templates-grid > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Favorite Button Hover Effects */
+.templates-grid button {
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.templates-grid button:hover {
+  background-color: #c82333 !important;
+  transform: scale(1.05);
+}
+
+.templates-grid button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .templates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+    padding: 0 16px;
+  }
+  
+  .templates-grid > div {
+    padding: 12px;
+  }
+  
+  .templates-grid > div > div:first-child {
+    height: 120px !important;
+  }
+  
+  .templates-grid h3 {
+    font-size: 16px !important;
+  }
+  
+  .templates-grid p {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .templates-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  
+  .templates-grid > div {
+    padding: 12px;
+  }
+  
+  .templates-grid > div > div:first-child {
+    height: 140px !important;
+  }
+  
+  .templates-grid h3 {
+    font-size: 16px !important;
+  }
+  
+  .templates-grid p {
+    font-size: 13px !important;
+  }
+}
+
+/* Search and Filter Responsive Styles */
+@media (max-width: 768px) {
+  div[style*="display: flex"][style*="gap: 16px"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  div[style*="flex: 1"] {
+    min-width: 100% !important;
+  }
+  
+  div[style*="min-width: 150px"] {
+    min-width: 100% !important;
+  }
+}
+
+/* Container Responsive Styles */
+@media (max-width: 768px) {
+  div[style*="padding: 20px"] {
+    padding: 12px !important;
+  }
+  
+  div[style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  div[style*="font-size: 18px"] {
+    font-size: 16px !important;
+  }
+}
