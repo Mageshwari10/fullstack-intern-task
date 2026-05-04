@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { authService } from './services/authService';
 
 function AppFixed() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -437,7 +437,7 @@ function AppFixed() {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', maxWidth: '1200px', margin: '0 auto'}} className="templates-grid">
               {filteredTemplates.length > 0 ? (
                 filteredTemplates.map(template => {
-                  const categoryColors = {
+                  const categoryColors: {[key: string]: string} = {
                     'Dashboard': '#007bff',
                     'Landing': '#28a745',
                     'Admin': '#17a2b8',

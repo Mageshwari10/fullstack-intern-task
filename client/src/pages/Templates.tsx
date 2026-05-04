@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Template, templatesAPI } from '../services/api';
+import { Template as ApiTemplate, templatesAPI } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import TemplateCard from '../components/TemplateCard';
 
@@ -10,6 +10,8 @@ interface Template {
   description: string;
   thumbnail_url: string;
   category: string;
+  created_at: string;
+  updated_at: string;
 }
 
 const Templates: React.FC = () => {

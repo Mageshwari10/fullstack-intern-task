@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Template } from '../services/api';
 import { favoritesAPI } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
+
+interface Template {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail_url: string;
+  category: string;
+  created_at: string;
+}
 
 interface TemplateCardProps {
   template: Template;
