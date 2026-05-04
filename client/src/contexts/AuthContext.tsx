@@ -4,7 +4,7 @@ import { authAPI } from '../services/api';
 interface User {
   id: number;
   email: string;
-  created_at: string;
+  created_at?: string;
 }
 
 interface AuthContextType {
