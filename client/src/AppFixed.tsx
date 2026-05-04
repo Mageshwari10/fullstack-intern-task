@@ -45,9 +45,9 @@ function AppFixed() {
       setUser(response.user);
       setIsAuthenticated(true);
       window.location.href = '/'; // Force redirect
-    } catch (error) {
+    } catch (error: any) {
       console.error('Registration error:', error);
-      alert('Registration failed: ' + (error instanceof Error ? error.message : String(error)));
+      alert('Registration failed: ' + (error.response?.data?.error || error.message));
     } finally {
       setIsLoading(false);
     }
@@ -65,9 +65,9 @@ function AppFixed() {
       setUser(response.user);
       setIsAuthenticated(true);
       window.location.href = '/'; // Force redirect
-    } catch (error) {
+    } catch (error: any) {
       console.error('Login error:', error);
-      alert('Login failed: ' + (error instanceof Error ? error.message : String(error)));
+      alert('Login failed: ' + (error.response?.data?.error || error.message));
     } finally {
       setIsLoading(false);
     }
