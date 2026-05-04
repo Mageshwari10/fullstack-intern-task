@@ -24,7 +24,7 @@ const FavoritesList: React.FC = () => {
   const fetchFavorites = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_BASE_URL}/favorites`, {
+      const response = await fetch(`${API_BASE_URL}/api/favorites`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -48,7 +48,7 @@ const FavoritesList: React.FC = () => {
   const removeFavorite = async (templateId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${API_BASE_URL}/favorites/${templateId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/favorites/${templateId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

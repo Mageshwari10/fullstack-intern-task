@@ -55,7 +55,7 @@ const TemplateListSimple: React.FC<TemplateListProps> = ({ isAuthenticated, user
 
       console.log('Fetching templates...');
 
-      const response = await fetch(`${API_BASE_URL}/templates`);
+      const response = await fetch(`${API_BASE_URL}/api/templates`);
 
       const data = await response.json();
 

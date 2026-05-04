@@ -27,7 +27,7 @@ const TemplateListWorking: React.FC<TemplateListProps> = ({ isAuthenticated, use
   const fetchTemplates = async () => {
     try {
       console.log('Fetching templates...');
-      const response = await fetch(`${API_BASE_URL}/templates`);
+      const response = await fetch(`${API_BASE_URL}/api/templates`);
       const data = await response.json();
       console.log('Templates received:', data);
       setTemplates(data);
