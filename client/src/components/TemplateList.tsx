@@ -56,6 +56,36 @@ const TemplateList: React.FC<TemplateListProps> = ({ isAuthenticated, user }) =>
     setFilteredTemplates(filtered);
   }, [templates, searchQuery, selectedCategory]);
 
+  const toggleFavorite = async (e: React.MouseEvent, templateId: number) => {
+    e.stopPropagation(); // Prevent card click alert
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Please login to add favorites');
+        return;
+      }
+      
+      const response = await fetch(`${API_BASE_URL}/api/favorites/${templateId}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      const result = await response.json();
+      if (result.isFavorited) {
+        alert('Added to favorites!');
+      } else {
+        alert('Removed from favorites!');
+      }
+      // Refresh the page or state if needed, but for now just show alert
+    } catch (err) {
+      console.error('Error toggling favorite:', err);
+      alert('Failed to update favorites');
+    }
+  };
+
   const fetchTemplates = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/templates`);
@@ -262,14 +292,17 @@ const TemplateList: React.FC<TemplateListProps> = ({ isAuthenticated, user }) =>
             
             {isAuthenticated && (
               <button
+                onClick={(e) => toggleFavorite(e, template.id)}
                 style={{
                   padding: '8px 12px',
                   backgroundColor: '#dc3545',
-                  color: 'white',
+                  color: '#ffffff',
                   border: 'none',
                   borderRadius: '4px',
                   cursor: 'pointer',
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  position: 'relative',
+                  zIndex: 10
                 }}
                 title="Add to favorites"
               >
