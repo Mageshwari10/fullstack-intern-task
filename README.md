@@ -95,6 +95,8 @@ npm run dev      # Runs on http://localhost:5173
 **Mageshwari**
 - **GitHub**: [Mageshwari10](https://github.com/Mageshwari10)
 - **Role**: Full-Stack Developer Intern Candidate
+- **E-Mail**: mageshwarirajavel0@gmail.com
+- **Contact**:6374953655
 
 ---
 
