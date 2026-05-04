@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fullstack-intern-task-api.onrender.com/api';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fullstack-intern-task-api.onrender.com';
 console.log('Current API_BASE_URL:', API_BASE_URL);
 
 const api = axios.create({
@@ -47,32 +47,32 @@ export interface FavoriteResponse {
 
 export const authAPI = {
   register: (email: string, password: string) =>
-    api.post<AuthResponse>('/register', { email, password }),
+    api.post<AuthResponse>('/api/register', { email, password }),
   
   login: (email: string, password: string) =>
-    api.post<AuthResponse>('/login', { email, password }),
+    api.post<AuthResponse>('/api/login', { email, password }),
 };
 
 export const templatesAPI = {
   getAll: (category?: string, search?: string) =>
-    api.get<Template[]>('/templates', { params: { category, search } }),
+    api.get<Template[]>('/api/templates', { params: { category, search } }),
   
   getById: (id: number) =>
-    api.get<Template>(`/templates/${id}`),
+    api.get<Template>(`/api/templates/${id}`),
   
   getCategories: () =>
-    api.get<string[]>('/categories'),
+    api.get<string[]>('/api/categories'),
 };
 
 export const favoritesAPI = {
   toggleFavorite: (templateId: number) =>
-    api.post<FavoriteResponse>(`/favorites/${templateId}`),
+    api.post<FavoriteResponse>(`/api/favorites/${templateId}`),
   
   getFavorites: () =>
-    api.get<Template[]>('/favorites'),
+    api.get<Template[]>('/api/favorites'),
   
   checkFavorite: (templateId: number) =>
-    api.get<{ isFavorited: boolean }>(`/favorites/check/${templateId}`),
+    api.get<{ isFavorited: boolean }>(`/api/favorites/check/${templateId}`),
 };
 
 export default api;

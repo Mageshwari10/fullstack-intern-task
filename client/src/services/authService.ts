@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fullstack-intern-task-api.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fullstack-intern-task-api.onrender.com';
+// We will use /api prefix in the individual calls to be safe
 console.log('Current API_BASE_URL:', API_BASE_URL);
 
 
@@ -34,7 +35,7 @@ export const authService = {
 
       console.log('Attempting registration with:', { email, password: '***' });
 
-      const response = await api.post('/register', { email, password });
+      const response = await api.post('/api/register', { email, password });
 
       console.log('Registration response:', response.data);
 
@@ -59,7 +60,7 @@ export const authService = {
   login: async (email: string, password: string) => {
     try {
       console.log('Attempting login with:', { email, url: `${API_BASE_URL}/login` });
-      const response = await api.post('/login', { email, password });
+      const response = await api.post('/api/login', { email, password });
       console.log('Login response received:', response.status);
       return response.data;
     } catch (error: any) {
