@@ -168,7 +168,7 @@ function AppFixed() {
                 
                 <div style={{marginTop: '30px'}}>
                   <h2 style={{marginBottom: '20px'}}>Available Templates</h2>
-                  <TemplateList />
+                  <TemplateList isAuthenticated={isAuthenticated} user={user} />
                 </div>
 
                 <div style={{marginTop: '50px'}}>
