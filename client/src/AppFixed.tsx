@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 
 import { authService } from './services/authService';
+import TemplateList from './components/TemplateList';
+import FavoritesList from './components/FavoritesList';
 
 
 
@@ -158,15 +160,22 @@ function AppFixed() {
             
 
             {isAuthenticated && (
+              <>
+                <div style={{backgroundColor: '#d4edda', color: '#155724', padding: '15px', borderRadius: '8px', border: '1px solid #c3e6cb', marginBottom: '20px'}}>
+                  <h3 style={{marginBottom: '10px'}}>🎉 Login Successful!</h3>
+                  <p>You have successfully authenticated and can now access all features of Template Store.</p>
+                </div>
+                
+                <div style={{marginTop: '30px'}}>
+                  <h2 style={{marginBottom: '20px'}}>Available Templates</h2>
+                  <TemplateList />
+                </div>
 
-              <div style={{backgroundColor: '#d4edda', color: '#155724', padding: '15px', borderRadius: '8px', border: '1px solid #c3e6cb', marginBottom: '20px'}}>
-
-                <h3 style={{marginBottom: '10px'}}>🎉 Login Successful!</h3>
-
-                <p>You have successfully authenticated and can now access all features of Template Store.</p>
-
-              </div>
-
+                <div style={{marginTop: '50px'}}>
+                  <h2 style={{marginBottom: '20px'}}>Your Favorites</h2>
+                  <FavoritesList />
+                </div>
+              </>
             )}
 
             
