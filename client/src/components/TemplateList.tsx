@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../services/api';
 
 interface Template {
   id: number;
@@ -57,7 +58,7 @@ const TemplateList: React.FC<TemplateListProps> = ({ isAuthenticated, user }) =>
 
   const fetchTemplates = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/templates');
+      const response = await fetch(`${API_BASE_URL}/templates`);
       const data = await response.json();
       setTemplates(data);
       setError('');

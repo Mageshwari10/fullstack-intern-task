@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../services/api';
 import { Link } from 'react-router-dom';
 
 interface Template {
@@ -23,7 +24,7 @@ const FavoritesList: React.FC = () => {
   const fetchFavorites = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/favorites', {
+      const response = await fetch(`${API_BASE_URL}/favorites`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -47,7 +48,7 @@ const FavoritesList: React.FC = () => {
   const removeFavorite = async (templateId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/favorites/${templateId}`, {
+      const response = await fetch(`${API_BASE_URL}/favorites/${templateId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
