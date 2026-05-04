@@ -11,6 +11,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const environment = process.env.NODE_ENV || 'development';
+
+// Health check endpoint for Render
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    environment: environment 
+  });
+});
 const config = knexfile[environment];
 const db = knex(config);
 
