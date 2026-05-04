@@ -64,10 +64,11 @@ The repository is already configured with:
    - **Output Directory**: `dist`
    - **Install Command**: `npm install`
 
-6. **Environment Variables**:
+6. **Environment Variables** (CRITICAL):
    ```
    VITE_API_URL=https://fullstack-intern-task-api.onrender.com
    ```
+   **⚠️ IMPORTANT**: You must set this environment variable, otherwise the frontend will try to connect to localhost:5000 and sign-in won't work!
 
 7. **Click "Deploy"**
 
