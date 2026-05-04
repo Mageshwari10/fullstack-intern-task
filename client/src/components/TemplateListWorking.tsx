@@ -189,6 +189,7 @@ const TemplateListWorking: React.FC<TemplateListProps> = ({ isAuthenticated, use
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 };

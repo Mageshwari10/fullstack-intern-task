@@ -278,7 +278,6 @@ const TemplateList: React.FC<TemplateListProps> = ({ isAuthenticated, user }) =>
           </div>
         </div>
       ))}
-        </div>
       </div>
     </div>
   );
